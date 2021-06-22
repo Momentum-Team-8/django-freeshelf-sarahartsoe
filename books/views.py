@@ -26,4 +26,4 @@ def book_edit(request, pk):
             return redirect('book_list')
     else:
         form = BookForm(instance=book)
-    return render(request, 'collection/book_edit.html', {'book': book})
+    return render(request, 'books/book_edit.html', {'book': book})

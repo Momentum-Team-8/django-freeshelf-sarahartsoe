@@ -3,17 +3,29 @@
 <html>
   <head>
     <title>Booker and Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
   </head>
   <body>
     <header class="page-header">
       <div class="container">
-        <h1><a href="/">Awesome Books</a></h1>
+        <div class="notification is-primary">
+          <h1><a href="/">Awesome Books</a></h1>
+          {% if user.is_authenticated %}
+          <p class="">Hello, {{ user.username }}!</p>
+          <a href="{% url 'auth_logout' %}" class="">Logout</a>
+          {% else %}
+          <a href="{% url 'auth_login' %}" class="">Login</a>
+          {% endif %}
+          <aside></aside>
+        </div>
       </div>
     </header>
     <main class="container">
-        <div class="col">
-          {% block content %}
-          {% endblock %}</div>
-    </main>
-  </body>
-</html>
+      <div class="col">
+        {% block content %}
+        {% endblock %}</div>
+      </main>
+    </body>
+    </html>
+    

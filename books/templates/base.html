@@ -10,14 +10,20 @@
     <header class="page-header">
       <div class="container">
         <div class="notification is-primary">
+          <section>
           <h1><a href="/">Awesome Books</a></h1>
+          </section>
+          <aside class="right">
           {% if user.is_authenticated %}
           <p class="">Hello, {{ user.username }}!</p>
           <a href="{% url 'auth_logout' %}" class="">Logout</a>
           {% else %}
           <a href="{% url 'auth_login' %}" class="">Login</a>
           {% endif %}
-          <aside></aside>
+          </aside>
+          <br>
+        </div>
+        <br>
         </div>
       </div>
     </header>

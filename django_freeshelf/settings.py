@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 
 ACCOUNT_ACTIVATION_DAYS = 5
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile'
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",

@@ -3,11 +3,12 @@
 {% block content %}
 {% for book in books %}
 <article>
+  <h2><a href="">{{ book.title }}</a></h2>
   <time class="date">
     {{ book.created_date }}
   </time>
-    <h2><a href="">{{ book.title }}</a></h2>
   <p>{{ book.author|linebreaksbr }}</p>
+  <p>{{ book.category }}</p>
 </article>
 {% endfor %}
 {% endblock %}

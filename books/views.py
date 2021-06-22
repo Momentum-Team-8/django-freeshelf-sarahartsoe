@@ -9,3 +9,6 @@ def homepage(request):
 def book_list(request):
     books = Book.objects.all()
     return render(request, 'books/book_list.html', {'books': books})
+
+def profile_page(request):
+    return render(request, "books/profile_page.html")

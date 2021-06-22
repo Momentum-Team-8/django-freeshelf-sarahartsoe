@@ -1,1 +1,16 @@
 {% extends 'base.html' %}
+
+{% block content %}
+<div>
+<h2> Welcome Book Lover, have a look around!</h2>
+<br>
+</div>
+<div>
+<ul>
+    <br>
+    <li><a href="{% url 'book_list' %}">View Entire Book Catalog</a></li>
+    <li>View Your Favorites</li>
+</ul>
+</div>
+
+{% endblock content %}

@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.homepage, name="home"),
     path('accounts/', include('registration.backends.default.urls')),
     path('profile/', views.profile_page, name='profile_page'),
-    # path('', views.book_list, name='book_list'),
+    path('collection/', views.book_list, name='book_list'),
 ]

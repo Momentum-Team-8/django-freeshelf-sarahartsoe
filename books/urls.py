@@ -4,6 +4,7 @@ from django.urls.resolvers import URLPattern
 from . import views 
 
 urlpatterns = [
-    path('', views.book_list, name='book_list'),
+    path('', views.homepage, name="home"),
+    # path('', views.book_list, name='book_list'),
     path('accounts/', include('registration.backends.default.urls')),
 ]

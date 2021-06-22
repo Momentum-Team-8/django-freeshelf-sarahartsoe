@@ -18,6 +18,7 @@ CATEGORY_CHOICES = (
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
-    description = models.CharField(max_length=600)
+    description = models.CharField(max_length=900)
     created_date = models.DateTimeField(default=timezone.now)
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default='generic')
+    url = models.CharField(max_length=600, blank=True)

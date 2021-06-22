@@ -8,5 +8,5 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')),
     path('profile/', views.profile_page, name='profile_page'),
     path('collection/', views.book_list, name='book_list'),
-    path('collection/<int:pk>/edit/', views.album_edit, name='book_edit'),
+    path('collection/<int:pk>/edit/', views.book_edit, name='book_edit'),
 ]

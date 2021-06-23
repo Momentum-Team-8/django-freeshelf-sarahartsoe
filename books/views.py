@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Book
+from .models import Book, Category
 from .forms import BookForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -36,3 +36,7 @@ def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.delete()
     return redirect('book_list')
+
+def show_category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    books = category.books.all()

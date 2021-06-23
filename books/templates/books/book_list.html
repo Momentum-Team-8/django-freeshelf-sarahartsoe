@@ -28,7 +28,12 @@
     <div class="content">
       <p> written by {{ book.author|linebreaksbr }}</p>
       <p> {{ book.description }}</p>
-      <p>Category: <a href="{%url 'show_category' %}">{{ book.category }}</a></p>
+      <p>Category: </p>
+      <ul>
+        {% for category in book.category.all %}
+        <li><a href={% url 'show_category' slug=category.slug %}>{{ category.name }}</a></li>
+        {% endfor %}
+      </ul>
       <br>
       <time class="date">
         {{ book.created_date }}
@@ -49,9 +54,9 @@
 {% endfor %}
 {% endblock %}
 
-<!-- should go in delete url, but does not work {% url 'book_delete' pk=book.pk %} -->
 
 
+<!-- to go in category {%url 'show_category' %} -->
 
 
 <!-- <article>

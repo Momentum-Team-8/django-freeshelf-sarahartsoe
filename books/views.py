@@ -39,5 +39,5 @@ def book_delete(request, pk):
 
 def show_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    book = category.books.all()
-    return render(request, "books/show_category.html", {'book': book})
+    books = category.books.all()
+    return render(request, "books/show_category.html", {'books': books, 'category': category,})

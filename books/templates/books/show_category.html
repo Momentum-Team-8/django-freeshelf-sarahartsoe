@@ -1,5 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Category is: Book Realness</h1>
-{% endblock content %}
+<div>
+  <p><a href="{% url 'profile_page' %}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+  </svg>
+  Return to Profile Page</a></p>
+  <h1>Category is: Book Realness</h1>
+</div>
+{% for book in book.categoryall %}
+<br>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{ book.title }}
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fa-solid fa-circle-chevron-down" aria-hidden="true"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
+        </svg>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p> written by {{ book.author|linebreaksbr }}</p>
+      <p> {{ book.description }}</p>
+      <br>
+      <time class="date">
+        {{ book.created_date }}
+      </time>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
+        <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+      </svg>Add to Favorites</a>
+    <a href="{{book.url}}" class="card-footer-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
+        <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+      </svg>Learn More</a>
+  </footer>
+</div>
+{% endfor %}
+{% endblock %}
